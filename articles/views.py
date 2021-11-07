@@ -28,6 +28,7 @@ class ArticleListView(LoginRequiredMixin, ListView):
 class ArticleDetailView(LoginRequiredMixin, DetailView):
     model = Article
     template_name = "articles/detail.html"
+    ordering = ["-date"]
 
 
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
