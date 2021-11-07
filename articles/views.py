@@ -23,12 +23,12 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
 class ArticleListView(LoginRequiredMixin, ListView):
     model = Article
     template_name = "articles/list.html"
+    ordering = ["-date"]
 
 
 class ArticleDetailView(LoginRequiredMixin, DetailView):
     model = Article
     template_name = "articles/detail.html"
-    ordering = ["-date"]
 
 
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
