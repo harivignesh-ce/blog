@@ -1,0 +1,4 @@
+{% if request.user.is_superuser or request.user.username == article.author.username %}
+<a href="{% url 'article_edit' article.pk %}">Edit</a>
+| <a href="{% url 'article_delete' article.pk %}">Delete</a>
+{% endif %}

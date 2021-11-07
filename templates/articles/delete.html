@@ -1,0 +1,13 @@
+{% extends '_base.html' %}
+{% load htmltags %}
+{% block content %}
+<h1>Delete</h1>
+<form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ article.title }}"
+        {% if request.user != article.author %}
+        by {{ article.author | strong}}
+        {% endif %}
+        ?</p>
+    <button class="btn btn-danger ml-2" type="submit">Confirm</button>
+</form>
+{% endblock content %}
